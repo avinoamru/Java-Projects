@@ -1,33 +1,46 @@
 package aviTheRipper;
 
-import java.util.Scanner;
+
+
 
 public class GenRandomWord extends GetRandomLetter {
-    static Scanner input = new Scanner(System.in);
 
-    static String[] genRandomWord(int numOfLetters, int numOfWords){
+    private int secretNumber = 0;
 
 
-        char randomWord = genRandomLetter();
-        String temporaryString;
-        String[] temporaryArrayOfStrings = new String[numOfWords];
-        for (int i = 0; i < numOfWords; i++){
-            temporaryString = "";
+
+
+    String[] genRandomWord(int numOfLetters, int numOfWords) {
+        String randomString;
+        String[] arrayOfRandomStrings = new String[numOfWords];
+
+        for (int i = 0; i < numOfWords; i++) {
+            randomString = "";
             //genRandomLetter();
-            for (int y = 0; y < numOfLetters; y++){
-                temporaryString += genRandomLetter();
+            for (int y = 0; y < numOfLetters; y++) {
+                randomString += genRandomLetter();
             }
-            temporaryArrayOfStrings[i] = temporaryString;
+            arrayOfRandomStrings[i] = randomString;
+
+        }
+        return arrayOfRandomStrings;
+    }
+        void printOutArrayOfStrings(String[] arrayOfRandomStrings){
+
+            for (int i = 0; i < arrayOfRandomStrings.length; i++){
+                String tempString = "";
+                tempString = arrayOfRandomStrings[i];
+                System.out.println(tempString);
+
+
+
+            }
+
+            System.out.println();
         }
 
-        String[] arrayOfStrings = new String[numberOfLetters];
-        arrayOfStrings = genRandomWord(numberOfLetters,numberOfWords);
-        for (int i = 0; i <arrayOfStrings.length; i++){
-            System.out.println(arrayOfStrings[i]);
-        }
-        return temporaryArrayOfStrings;
+
 
     }
 
 
-}

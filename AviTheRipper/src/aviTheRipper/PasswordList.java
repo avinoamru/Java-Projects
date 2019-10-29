@@ -1,4 +1,24 @@
 package aviTheRipper;
 
-public class PasswordList {
+
+import java.util.Scanner;
+
+class PasswordList  {
+// generate brute force attack
+
+    GenRandomWord randomWord = new GenRandomWord();
+
+    Console console = new Console();
+
+
+    void  bruteForce(){
+
+
+
+
+    }
+
+
+
+
 }

@@ -9,11 +9,6 @@ public class GetRandomLetter  extends UsableLetters{
     static char genRandomLetter(){
 
         Random rnd = new Random();
-               /* char[] lower ;
-                 lower = getLowercaseLetters();
-                System.out.println(lower);
-                char[] upper;
-                upper = getUppercaseLetters();*/
 
         char[] letters = usableLetters(lowerLetterArray, upperLetterArray);
 
