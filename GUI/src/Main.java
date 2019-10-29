@@ -1,13 +1,12 @@
 
-
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.ArrayList;
 
+
+import ticTacToe.GridButton;
 import ticTacToe.TTTBackEnd;
 
 
@@ -15,18 +14,31 @@ public class Main {
 
    static TTTBackEnd tttBackEnd = new TTTBackEnd(3);
 
+
    static int cols = 3;
   static  int rows = 3;
 
-// static ArrayList<Button> btnArray = new ArrayList<Button>();
- static Button[][] btnArray = new Button[cols][rows];
 
- static void createBtnListener(Button aBtn){
+
+ static GridButton[][] btnArray = new GridButton[cols][rows];
+
+ static void createBtnListener(GridButton aBtn){
      aBtn.addActionListener(
              new ActionListener() {
                  @Override
                  public void actionPerformed(ActionEvent actionEvent) {
-                     System.out.println("hello");
+                    char player = tttBackEnd.whoseTurnItIs();
+                     tttBackEnd.addToBoard(aBtn.x,aBtn.y,player);
+//                 tttBackEnd.addToBoard(0,1,tttBackEnd.whoseTurnItIs());
+                     System.out.println(player);
+                     aBtn.setLabel("" + player);
+                  if ( tttBackEnd.victoryConditionAchieved() == true){
+                      char whoWon = tttBackEnd.getWinner();
+                      System.out.println("player" + whoWon + " Won");
+
+                  }
+
+
 
                  }
              }
@@ -41,12 +53,12 @@ public class Main {
 
         for (int i = 0; i < btnArray.length;i++){
             for (int j = 0; j < btnArray[i].length;j++){
-//                System.out.println(btnArray[i][j]);
+
                 btnArray[i][j].setLabel(String.valueOf(board[i][j]));
-//                board[i][j]
+
 
             }
-//            System.out.println(btnArray.get(i).getLabel());
+
 
         }
 
@@ -56,15 +68,15 @@ public class Main {
 
         tttBackEnd.initializeBoard();
 
-        tttBackEnd.addToBoard(0,0,'X');
+        tttBackEnd.addToBoard(0,0,' ');
 
 
         int fWidth = 800;
         int fHeight = 600;
         int offset = 20;
 
-          Button[] colArray = new Button[cols];
-         Button[] rowArray = new Button[rows];
+          GridButton[] colArray = new GridButton[cols];
+         GridButton[] rowArray = new GridButton[rows];
 
 
         Button btnStart = new Button("Start");
@@ -109,15 +121,17 @@ public class Main {
                 }
         );
 
-//      Creating the grid of buttons (The problem is HERE |
+
 //                                                        V
         for (int r = 0; r < rows; r++) {
             if (r == 0) {
 
                 for (int c = 0; c < cols; c++) {
-                    colArray[c] = new Button(" " + c);
+                    colArray[c] = new GridButton(" " + c);
                     createBtnListener(colArray[c]);
                     btnArray[r][c] = colArray[c];
+                    btnArray[r][c].x = r;
+                    btnArray[r][c].y = c;
                     f.add(colArray[c]);
                     if (c == 0) {
                         colArray[c].setBounds(0, offset, buttonWidth, buttonHeight);
@@ -129,7 +143,7 @@ public class Main {
                 }
             } else {
                 for (int c = 0; c < cols; c++) {
-                    colArray[c] = new Button("" + c);
+                    colArray[c] = new GridButton("" + c);
                     createBtnListener(colArray[c]);
                     btnArray[r][c] = colArray[c];
                     f.add(colArray[c]);
@@ -138,7 +152,6 @@ public class Main {
                         colArray[c].setBounds(0, buttonHeight*r, buttonWidth, buttonHeight);
                     } else {
                         colArray[c].setBounds(colArray[c - 1].getWidth() + colArray[c - 1].getX(), colArray[c - 1].getHeight()*r, buttonWidth, buttonHeight);
-
                     }
 
                 }
