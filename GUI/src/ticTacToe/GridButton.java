@@ -3,6 +3,7 @@ package ticTacToe;
 import java.awt.*;
 
 public class GridButton  extends Button {
+
    public int x = 0;
    public int y = 0;
 
