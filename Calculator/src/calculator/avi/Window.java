@@ -1,40 +1,154 @@
 package calculator.avi;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 class Window extends JFrame {
-        private Model model = new Model();
-
-      private int screenHeight = 800;
-      private int screenWidth = 600;
-      private int offset = 100;
 
 
-       private int cols = 4;
-       private int rows = 4;
-
-       private int buttonHeight = ((screenHeight-130)/cols) ;
-       private int buttonWidth = (screenWidth/rows);
-
-       private GridButton[][] btnArray = new GridButton[cols][rows];
+    private int screenHeight = 500;
+    private int screenWidth = 500;
 
 
+    private int cols = 4;
+    private int rows = 4;
 
-  private GridButton[][] screen() {
-      char symbol = 0;
-       for (int r = 0; r < rows; r++){
-           for (int c = 0; c < cols; c++){
-               final GridButton[][] aButton = new GridButton[r][c];
-               GridButton aBtn = null;
-               aButton[cols][rows] = aBtn;
-               model.btnAction(aBtn);
-               aButton[r][c].x = r;
-               aButton[r][c].y = c;
-               aButton[r][c].setBounds(buttonWidth * r, buttonHeight * c + offset, buttonWidth, buttonHeight);
+    private int buttonHeight = 75;
+    private int buttonWidth = screenWidth / rows;
 
-              /*switch (symbol){
+   private int arraySize = 14;
+   private GridButton[] buttons = new GridButton[arraySize];
+
+
+
+    JTextArea inputBox() {
+        JTextArea text = new JTextArea();
+
+        text.setColumns(screenWidth);
+        text.setRows(1);
+        text.setBackground(Color.WHITE);
+        text.setBounds(0,0,screenWidth,screenHeight/7);
+        text.setFont(new Font("Ariel", Font.PLAIN,text.getHeight()));
+
+        this.add(text);
+        return text;
+    }
+
+    GridButton createButton(String label, int x, int y, int width, int height) {
+        GridButton aButton = new GridButton();
+        return aButton;
+    }
+
+
+
+    private GridButton[] createNumbersButtons() {
+            int index = 0;
+
+            for (index = 0; index < arraySize; index++) {
+                buttons[index] = createButton("", 100, 100, buttonWidth, buttonHeight);
+                if (index == 0) {
+                    buttons[index].setBounds(0, inputBox().getHeight() , buttonWidth, buttonHeight);
+                    buttons[index].setLabel("7");
+                    
+                }
+                else if (index == 1){
+                    buttons[index].setBounds( buttonWidth, inputBox().getHeight() , buttonWidth, buttonHeight);
+                    buttons[index].getIcon();
+                    buttons[index].setLabel("8");
+                }
+                else if (index == 2){
+                    buttons[index].setBounds( buttonWidth * 2, inputBox().getHeight() , buttonWidth, buttonHeight);
+                    buttons[index].setLabel("9");
+                }
+                else if (index == 3){
+                    buttons[index].setBounds( 0, inputBox().getHeight()*2 , buttonWidth, buttonHeight);
+                    buttons[index].setLabel("4");
+                }
+                else if (index == 4){
+                    buttons[index].setBounds( buttonWidth, inputBox().getHeight()*2 , buttonWidth, buttonHeight);
+                    buttons[index].setLabel("5");
+                }
+                else if (index == 5){
+                    buttons[index].setBounds( buttonWidth *2, inputBox().getHeight()*2 , buttonWidth, buttonHeight);
+                    buttons[index].setLabel("6");
+                }
+                else if (index == 6){
+                    buttons[index].setBounds( 0, inputBox().getHeight()*3 , buttonWidth, buttonHeight);
+                    buttons[index].setLabel("1");
+                }
+                else if (index == 7){
+                    buttons[index].setBounds( buttonWidth, inputBox().getHeight()*3 , buttonWidth, buttonHeight);
+                    buttons[index].setLabel("2");
+                }
+                else if (index == 8){
+                    buttons[index].setBounds( buttonWidth*2, inputBox().getHeight()*3 , buttonWidth, buttonHeight);
+                    buttons[index].setLabel("3");
+                }
+                else if (index == 9){
+                    buttons[index].setBounds( buttonWidth, inputBox().getHeight()*4 , buttonWidth, buttonHeight);
+                    buttons[index].setLabel("0");
+                }
+                else if (index == 10){
+                    buttons[index].setBounds( buttonWidth*3, inputBox().getHeight() , buttonWidth, buttonHeight);
+                    buttons[index].setLabel("/");
+                }
+                else if (index == 11){
+                    buttons[index].setBounds( buttonWidth*3, inputBox().getHeight()*2 , buttonWidth, buttonHeight);
+                    buttons[index].setLabel("X");
+                }
+                else if (index == 12){
+                    buttons[index].setBounds( buttonWidth*3, inputBox().getHeight()*3 , buttonWidth, buttonHeight);
+                    buttons[index].setLabel("-" );
+                }
+                else if (index == 13){
+                    buttons[index].setBounds( buttonWidth*3, inputBox().getHeight()*4 , buttonWidth, buttonHeight);
+                    buttons[index].setLabel("+");
+                    buttons[index].addActionListener(
+                            new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent actionEvent) {
+
+                                }
+                            }
+                    );
+                }
+
+
+
+                this.add(buttons[index]);
+
+
+            }   return buttons;
+    }
+
+       void screen(){
+       this.inputBox();
+       createNumbersButtons();
+
+       this.setLayout(null);
+       this.setVisible(true);
+       this.setSize(screenWidth, screenHeight);
+       this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+       }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+ /*switch (symbol){
                    case 0:
                        aButton[r][c].setLocation(0,100);
 
@@ -113,27 +227,7 @@ class Window extends JFrame {
                   case 15:
                         aButton[0].setLocation(450,601);
 
-                        break;*/
+                        break;
 
-//               }
-                   this.add(aButton[r][c]);
-               btnArray[r][c] = aButton[r][c];
-
-           }
-       }
-
-
-       this.setLayout(null);
-       this.setVisible(true);
-       this.setSize(screenWidth,screenHeight);
-       this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-       return btnArray;
-    }
-
-    public GridButton[][] getScreen(){
-      return screen();
-    }
-
-}
-
-
+               }
+            */
