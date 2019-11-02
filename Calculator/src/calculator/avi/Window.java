@@ -13,14 +13,13 @@ class Window extends JFrame {
     private int screenWidth = 500;
 
 
-    private int cols = 4;
-    private int rows = 4;
+
 
     private int buttonHeight = 75;
-    private int buttonWidth = screenWidth / rows;
+    private int buttonWidth = screenWidth / 4;
 
-   private int arraySize = 14;
-   private GridButton[] buttons = new GridButton[arraySize];
+    private int arraySize = 14;
+    private JButton[] buttons = new JButton[arraySize];
 
 
 
@@ -37,14 +36,14 @@ class Window extends JFrame {
         return text;
     }
 
-    GridButton createButton(String label, int x, int y, int width, int height) {
-        GridButton aButton = new GridButton();
+    JButton createButton(String label, int x, int y, int width, int height) {
+        JButton aButton = new JButton();
         return aButton;
     }
 
 
 
-    private GridButton[] createNumbersButtons() {
+    private JButton[] createNumbersButtons() {
             int index = 0;
 
             for (index = 0; index < arraySize; index++) {
@@ -52,7 +51,7 @@ class Window extends JFrame {
                 if (index == 0) {
                     buttons[index].setBounds(0, inputBox().getHeight() , buttonWidth, buttonHeight);
                     buttons[index].setLabel("7");
-                    
+
                 }
                 else if (index == 1){
                     buttons[index].setBounds( buttonWidth, inputBox().getHeight() , buttonWidth, buttonHeight);
