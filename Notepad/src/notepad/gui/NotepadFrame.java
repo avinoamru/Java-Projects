@@ -1,9 +1,11 @@
 package notepad.gui;
 
 import javax.swing.*;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 import java.awt.*;
 
-public class NotepadFrame extends JFrame {
+public class NotepadFrame extends JFrame implements MenuListener {
 
      private int frameHeight = 600;
      private int frameWidth = 800;
@@ -69,7 +71,18 @@ public class NotepadFrame extends JFrame {
     }
 
 
+    @Override
+    public void menuSelected(MenuEvent menuEvent) {
+//            menuBar()
+    }
 
+    @Override
+    public void menuDeselected(MenuEvent menuEvent) {
 
+    }
 
+    @Override
+    public void menuCanceled(MenuEvent menuEvent) {
+
+    }
 }
