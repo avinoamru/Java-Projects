@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="AviTheRipper/src"/>
+	<classpathentry excluding="calculator/avi/" kind="src" path="Calculator/src"/>
+	<classpathentry kind="src" path="Calculator/src/calculator/avi"/>
+	<classpathentry excluding="ticTacToe/" kind="src" path="GUI/src"/>
+	<classpathentry kind="src" path="GUI/src/ticTacToe"/>
+	<classpathentry excluding="notepad/gui/" kind="src" path="Notepad/src"/>
+	<classpathentry kind="src" path="Notepad/src/notepad/gui"/>
+	<classpathentry kind="src" path="projectGUI/src"/>
+	<classpathentry kind="output" path="AviTheRipper/out/production/AviTheRipper"/>
+</classpath>

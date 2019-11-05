@@ -24,20 +24,28 @@ public class NotepadFrame extends JFrame {
 
     JMenuBar menuBar(){
         JMenuBar mBar = new JMenuBar();
-        JMenu mFile = new JMenu("File");
-        JMenu mEdit = new JMenu("Edit");
+        JMenu mFile, mEdit, mFormat,mView , mHelp;
         JMenuItem fileNew, fileOpen, fileSave, fileSaveAs;
 
-        fileNew = new JMenuItem("New");
-        fileOpen = new JMenuItem("Open");
-        fileSave = new JMenuItem("Save");
-        fileSaveAs = new JMenuItem("Save as..");
+        mFile = new JMenu("File");
+        mEdit = new JMenu("Edit");
+        mFormat = new JMenu("Format");
+        mView = new JMenu("View");
+        mHelp = new JMenu("Help");
+
+        fileNew = new JMenuItem("New                          Ctrl+N");
+        fileOpen = new JMenuItem("Open                        Ctrl+O");
+        fileSave = new JMenuItem("Save                        Ctrl+S");
+        fileSaveAs = new JMenuItem("Save as...          Ctrl+Shift+S");
 
         mFile.add(fileNew); mFile.add(fileOpen);
         mFile.add(fileSave); mFile.add(fileSaveAs);
 
         mBar.add(mFile);
         mBar.add(mEdit);
+        mBar.add(mFormat);
+        mBar.add(mView);
+        mBar.add(mHelp);
 
 
         return mBar;
