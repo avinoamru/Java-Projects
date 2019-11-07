@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="javafx-sdk-13.0">
+    <CLASSES>
+      <root url="file:///usr/lib/jvm/jdk-13.0.1/lib/javafx-sdk-13.0.1" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="file:///usr/lib/jvm/jdk-13.0.1/lib/javafx-sdk-13.0.1" />
+    </NATIVE>
+    <SOURCES>
+      <root url="file:///usr/lib/jvm/jdk-13.0.1/lib/javafx-sdk-13.0.1" />
+    </SOURCES>
+    <jarDirectory url="file:///usr/lib/jvm/jdk-13.0.1/lib/javafx-sdk-13.0.1" recursive="false" />
+  </library>
+</component>

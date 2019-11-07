@@ -2,12 +2,12 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -15,31 +15,26 @@ public class Controller implements Initializable {
 
 
     @FXML
-    private ColorPicker colorPicker;
+    private ColorPicker colorPicker = new ColorPicker();
 
     @FXML
-    private TextField bSize;
+    private TextField bSize = new TextField();
 
     boolean toolSelected = false;
 
     GraphicsContext brushTool;
 
     @FXML
-    private Canvas canvas;
+    private Canvas canvas = new Canvas();
 
-    public Controller() {
-    }
 
-    @FXML
-    private void handleButtonAction(ActionEvent event){
-
-    }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         brushTool = canvas.getGraphicsContext2D();
+        brushTool.setFill(Color.BLACK);
         canvas.setOnMouseDragged(e -> {
             double size = Double.parseDouble(bSize.getText());
             double x = e.getX() - size / 2;
@@ -54,8 +49,10 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void toolSelected(ActionEvent e){
+    public void toolSelected(javafx.event.ActionEvent e){
         toolSelected = true;
     }
+
+
 
 }
