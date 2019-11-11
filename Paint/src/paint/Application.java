@@ -2,13 +2,11 @@ package paint;
 
 import java.awt.EventQueue;
 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Canvas;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class Application {
 
@@ -46,25 +44,19 @@ public class Application {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		JPanel header_panel = new JPanel();
+		header_panel.setBounds(0, 0, 784, 75);
+		
+		frame.getContentPane().add(header_panel);
+		
+		JPanel draw_panel = new JPanel();
+		draw_panel.setBackground(Color.WHITE);
+		draw_panel.setBounds(10, 76, 764, 474);
+		frame.getContentPane().add(draw_panel);
+		draw_panel.setLayout(null);
+		
 		Canvas canvas = new Canvas();
-		
-		JPanel panel = new JPanel();
-		panel.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				canvas.action(drag, what)
-			}
-		});
-		panel.setBackground(Color.WHITE);
-		panel.setBounds(10, 57, 766, 496);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
-		
-		
-		canvas.setForeground(Color.BLACK);
-		canvas.setBackground(Color.WHITE);
-		canvas.setBounds(763, 496, -760, -491);
-		panel.add(canvas);
+		canvas.setBounds(0, 0, draw_panel.getWidth(), draw_panel.getHeight());
+		draw_panel.add(canvas);
 	}
-
 }
