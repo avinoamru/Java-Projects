@@ -49,6 +49,7 @@ public class Palindrome {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setTitle("Palindrome Checker");
 		frame.setBounds(100, 100, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -89,19 +90,19 @@ public class Palindrome {
 	        }
 			
 			if (input.equalsIgnoreCase(reverse)) {
-				result_area.setText(" \n The inputed string " + input + " is a palindrome.");
+				result_area.setText(" \n The given string " + input + " is a palindrome.");
 			}
 			else {
-				result_area.setText(" The inputed string is not a palindrome.\n\n The inputed string is " + input + ", and the reversed string is " + reverse + ".");
+				result_area.setText(" The given string is not a palindrome.\n\n The given string is " + input + ", and the reversed string is " + reverse + ".");
 			}
 				
-				
-				
+			
 			}
 		});
 		btnCheckPalindrome.setFont(new Font("Times New Roman", Font.PLAIN, 16));
 		btnCheckPalindrome.setBounds(419, 11, 158, 40);
 		main_panel.add(btnCheckPalindrome);
+		
 		
 		JButton btnReset = new JButton("Reset");
 		btnReset.addActionListener(new ActionListener() {
