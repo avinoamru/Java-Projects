@@ -1,28 +1,47 @@
 package gameOfLife;
 
+import java.util.Arrays;
+
+@SuppressWarnings("unused")
 public class Main {
 
-
-		
-	static int gameGrid[][] = {{0,0,0,0,0,0,0,0},
-							  {0,0,0,0,0,0,0,0},
-							  {0,0,0,0,0,0,0,0},
-							  {0,0,0,0,0,0,0,0},
-							  {0,0,0,0,0,0,0,0},
-							  {0,0,0,0,0,0,0,0},
-							  {0,0,0,0,0,0,0,0},
-							  {0,0,0,0,0,0,0,0}};
+	static String dead_Cell = "[ ]";
+	static String live_Cell = "[*]";
 	
-		
-		
-
+	static String[][] game_Grid = 
+			{
+				{dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell},
+				{dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell},
+				{dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell},
+				{dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell},
+				{dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell},
+				{dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell},
+				{dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell},
+				{dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell,dead_Cell}
+				
+			};
 	
 	
+	void rules()
+	{
+		
+		
+	}
+	
+	
+	void refresh()
+	{
+		
+		
+	}
+	
+	
+ 
 	
 	
 	public static void main(String[] args) {
-
-
+		
+	
 	}
 
 }

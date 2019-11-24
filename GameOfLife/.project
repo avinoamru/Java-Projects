@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>jdk-13.0.1</name>
-			<type>2</type>
-			<location>C:/Program Files/Java/jdk-13.0.1</location>
-		</link>
-	</linkedResources>
 </projectDescription>
